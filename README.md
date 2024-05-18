@@ -1,4 +1,20 @@
 # Comma Controls Challenge!
+
+## Submission
+Tried a whole lot of things ranging from LSTMs to MPC and weird combinations of everything. Some had much lower lateral acceleraton cost, some had much lower jerk costs, but in terms of total cost, PID (which I was using as a baseline) remained on top out of the methods which would run in a reasonable amount of time. Report is in the repository as `pid_report.html`.
+
+Essentially brute forced optimal PID values using the code in `pid_tuner.py`. 
+
+`k_p = 0.044`, `k_i = 0.10`, `k_d = -0.035` was found to be near optimal.
+
+| Controller | LatAccel Cost | Jerk Cost | Total Cost |
+|------------|---------------|-----------|------------|
+| Baseline   | 9.412         | 32.167    | 79.225     |
+| Test (PID) | 1.564         | 26.422    | 34.241     |
+
+I'll try to organize and upload some of my other attempts in another branch at some point soon.
+
+## Rest of the original README
 ![Car](./imgs/car.jpg)
 
 Machine learning models can drive cars, paint beautiful pictures and write passable rap. But they famously suck at doing low level controls. Your goal is to write a good controller. This repo contains a model that simulates the lateral movement of a car, given steering commands. The goal is to drive this "car" well for a given desired trajectory.
